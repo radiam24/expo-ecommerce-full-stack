@@ -9,6 +9,7 @@ import { useCart } from '@/store/cartStore';
 import { Text } from '@/components/ui/text';
 import { useAuth } from '@/store/authStore';
 import CustomStripeProvider from '@/components/CustomStripeProvider';
+import React from 'react';
 
 // Create a client
 const queryClient = new QueryClient();

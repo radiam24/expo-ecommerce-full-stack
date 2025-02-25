@@ -1,15 +1,15 @@
-import { HStack } from '@/components/ui/hstack';
-import { VStack } from '@/components/ui/vstack';
-import { Text } from '@/components/ui/text';
-import { useCart } from '@/store/cartStore';
-import { View, FlatList, Alert } from 'react-native';
-import { Button, ButtonText } from '@/components/ui/button';
-import { Redirect, useRouter } from 'expo-router';
-import { useMutation, useQuery } from '@tanstack/react-query';
-import { createOrder } from '@/api/orders';
-import { createPaymentIntent } from '@/api/stripe';
-import { useEffect } from 'react';
-import { useStripe } from '@stripe/stripe-react-native';
+import { HStack } from "@/components/ui/hstack";
+import { VStack } from "@/components/ui/vstack";
+import { Text } from "@/components/ui/text";
+import { useCart } from "@/store/cartStore";
+import { FlatList, Alert } from "react-native";
+import { Button, ButtonText } from "@/components/ui/button";
+import { Redirect, useRouter } from "expo-router";
+import { useMutation } from "@tanstack/react-query";
+import { createOrder } from "@/api/orders";
+import { createPaymentIntent } from "@/api/stripe";
+import { useStripe } from "@stripe/stripe-react-native";
+import React from "react";
 
 export default function CartScreen() {
   const items = useCart((state) => state.items);
@@ -23,7 +23,7 @@ export default function CartScreen() {
       const { customer, ephemeralKey, paymentIntent } = data;
 
       const { error } = await initPaymentSheet({
-        merchantDisplayName: 'Example, Inc.',
+        merchantDisplayName: "Example, Inc.",
         customerId: customer,
         customerEphemeralKeySecret: ephemeralKey,
         paymentIntentClientSecret: paymentIntent,
@@ -31,12 +31,12 @@ export default function CartScreen() {
         //methods that complete payment after a delay, like SEPA Debit and Sofort.
         // allowsDelayedPaymentMethods: true,
         defaultBillingDetails: {
-          name: 'Jane Doe',
+          name: "Jane Doe",
         },
         // returnURL: 'notjust-ecom:/',
       });
       if (error) {
-        Alert.alert('Error', error.message);
+        Alert.alert("Error", error.message);
         console.log(error);
       }
 
@@ -73,10 +73,10 @@ export default function CartScreen() {
       Alert.alert(`Error code: ${error.code}`, error.message);
       // TODO: handle error. The order is submitted, but payment failed.
     } else {
-      Alert.alert('Success', 'Your order is confirmed!');
+      Alert.alert("Success", "Your order is confirmed!");
       resetCart();
       // router.push(`/orders/${orderId}`);
-      router.replace('/');
+      router.replace("/");
     }
   };
 
@@ -87,7 +87,7 @@ export default function CartScreen() {
   };
 
   if (items.length === 0) {
-    return <Redirect href={'/'} />;
+    return <Redirect href={"/"} />;
   }
 
   return (

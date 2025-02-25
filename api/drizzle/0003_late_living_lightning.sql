@@ -1,1 +1,0 @@
-ALTER TABLE "orders" ADD COLUMN "stripePaymentIntentId" varchar(255);

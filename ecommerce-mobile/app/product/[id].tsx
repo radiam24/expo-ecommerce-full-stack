@@ -11,6 +11,7 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchProductById } from '@/api/products';
 import { ActivityIndicator } from 'react-native';
 import { useCart } from '@/store/cartStore';
+import React from 'react';
 
 export default function ProductDetailsScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();

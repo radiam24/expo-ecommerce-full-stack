@@ -5,11 +5,10 @@ import { Heading } from '@/components/ui/heading';
 import { Input, InputField, InputIcon, InputSlot } from '@/components/ui/input';
 import { EyeIcon, EyeOffIcon } from 'lucide-react-native';
 import { Button, ButtonText } from '@/components/ui/button';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { HStack } from '@/components/ui/hstack';
 import { useMutation } from '@tanstack/react-query';
 import { login, signup } from '@/api/auth';
-import { err } from 'react-native-svg/lib/typescript/xml';
 import { useAuth } from '@/store/authStore';
 import { Redirect } from 'expo-router';
 
