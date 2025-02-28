@@ -29,7 +29,8 @@
         "./tailwind.config.ts"
       ]
     },
-    "jsxImportSource": "nativewind"
+    "jsxImportSource": "nativewind",
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",
