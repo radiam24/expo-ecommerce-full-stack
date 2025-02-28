@@ -3,9 +3,10 @@ import ProductListItem from './ProductListItem'
 import Link from 'next/link'
 import { Card } from '@/components/ui/card'
 import { AddIcon, Icon } from '@/components/ui/icon'
+import { Product } from '@/types'
 
 export default async function ProductsPage() {
-    const products = await listProducts()
+    const products: Product[] = await listProducts()
 
     return (
         <div className="flex flex-row flex-wrap gap-4 max-w-[1400px] w-full">
@@ -18,7 +19,7 @@ export default async function ProductsPage() {
                 </Card>
             </Link>
 
-            {products.map((product) => (
+            {products.map((product: Product) => (
                 <ProductListItem key={product.id} product={product} />
             ))}
         </div>

@@ -11,7 +11,7 @@ export async function createProduct(
 ) {
     let redirectUrl = '/dashboard/products'
     try {
-        const token = cookies().get('token')?.value
+        const token = (await cookies()).get('token')?.value
 
         const res = await fetch(`${API_URL}/products`, {
             method: 'POST',
@@ -25,7 +25,7 @@ export async function createProduct(
         if (!res.ok) {
             console.log(res)
             if (res.status === 401) {
-                cookies().delete('token')
+                (await cookies()).delete('token')
                 redirectUrl = '/login'
             } else {
                 throw new Error('Failed to create product: ')

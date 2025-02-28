@@ -3,7 +3,7 @@ import { cookies } from 'next/headers'
 
 export async function fetchOrders() {
     try {
-        const token = cookies().get('token')?.value
+        const token = (await cookies()).get('token')?.value
 
         const response = await fetch(`${API_URL}/orders`, {
             headers: {
@@ -26,7 +26,7 @@ export async function fetchOrders() {
 
 export async function fetchOrder(id: number) {
     try {
-        const token = cookies().get('token')?.value
+        const token = (await cookies()).get('token')?.value
 
         const response = await fetch(`${API_URL}/orders/${id}`, {
             headers: {

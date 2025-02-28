@@ -13,11 +13,12 @@ import {
 import StatusSelector from './StatusSelector'
 import { Box } from '@/components/ui/box'
 
-export default async function OrderPage({
-    params,
-}: {
-    params: { id: string }
-}) {
+export default async function OrderPage(
+    props: {
+        params: Promise<{ id: string }>
+    }
+) {
+    const params = await props.params;
     const order = await fetchOrder(Number(params.id))
     console.log(order)
     return (

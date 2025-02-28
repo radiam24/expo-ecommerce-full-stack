@@ -20,8 +20,8 @@ type DashboardLayoutProps = {
     children: React.ReactNode
 }
 
-export default function DashboardLayout({ children }: DashboardLayoutProps) {
-    const token = cookies().get('token')?.value
+export default async function DashboardLayout({ children }: DashboardLayoutProps) {
+    const token = (await cookies()).get('token')?.value
 
     if (!token) {
         return redirect('/login')

@@ -1,6 +1,8 @@
+import { Product } from '@/types'
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
-export async function listProducts() {
+export async function listProducts(): Promise<Product[]> {
     const res = await fetch(`${API_URL}/products`)
     const data = await res.json()
     if (!res.ok) {
