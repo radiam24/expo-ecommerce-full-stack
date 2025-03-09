@@ -4,12 +4,6 @@ import { HStack } from '@/components/ui/hstack'
 import { Text } from '@/components/ui/text'
 import dayjs from 'dayjs'
 import { Heading } from '@/components/ui/heading'
-import {
-    Select,
-    SelectIcon,
-    SelectInput,
-    SelectTrigger,
-} from '@/components/ui/select'
 import StatusSelector from './StatusSelector'
 import { Box } from '@/components/ui/box'
 
@@ -20,7 +14,6 @@ export default async function OrderPage(
 ) {
     const params = await props.params;
     const order = await fetchOrder(Number(params.id))
-    console.log(order)
     return (
         <Card>
             <Box className="p-4 border-b border-gray-200 gap-4">

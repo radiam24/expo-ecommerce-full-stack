@@ -1,5 +1,4 @@
 import { fetchOrders } from '@/api/orders'
-import { Box } from '@/components/ui/box'
 import { Card } from '@/components/ui/card'
 import { HStack } from '@/components/ui/hstack'
 import { Text } from '@/components/ui/text'

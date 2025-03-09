@@ -7,20 +7,15 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { Text } from '@/components/ui/text'
 import Link from 'next/link'
-import {
-    Icon,
-    MenuIcon,
-    MessageCircleIcon,
-    StarIcon,
-    ThreeDotsIcon,
-} from '@/components/ui/icon'
-// import { HomeIcon } from 'lucide-react-native';
+import { Icon, MenuIcon, StarIcon, ThreeDotsIcon } from '@/components/ui/icon'
 
 type DashboardLayoutProps = {
     children: React.ReactNode
 }
 
-export default async function DashboardLayout({ children }: DashboardLayoutProps) {
+export default async function DashboardLayout({
+    children,
+}: DashboardLayoutProps) {
     const token = (await cookies()).get('token')?.value
 
     if (!token) {
